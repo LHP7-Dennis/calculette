@@ -13,32 +13,32 @@
 
 <body>
 
-    <div class="calculatrice m-auto" id="calc">
+    <div class="calculatrice m-auto border border-2 border-dark bg-dark" id="calc">
         <div>
-            <div colspan="4" class="border border-danger">
+            <div colspan="4" class="border border-dark border-2">
                 <div><input type="text" readonly="readonly" name="first" id="first"
-                        class="col-12 border border-white text-end" />
+                        class="col-12 border border-dark text-end text-white" />
                 </div>
                 <div><input type="text" readonly="readonly" name="action" id="action"
-                        class="col-12 border border-white text-end" /></div>
+                        class="col-12 border border-dark text-end text-white" /></div>
                 <div><input type="text" readonly="readonly" name="second" id="second"
-                        class="col-12 border border-white text-end" />
+                        class="col-12 border border-dark text-end text-white" />
                 </div>
                 <div><input type="text" readonly="readonly" name="result" id="result"
-                        class="col-12 border border-white text-end" /></div>
+                        class="col-12 border border-dark text-end text-white" /></div>
             </div>
         </div>
-        <div class="border border-primary fs-5 m-auto">
+        <div class=" fs-5 m-auto">
             <div class="row justify-content-around m-auto fs-1">
 
-                <button type="button" class="col-3 text-center" value="7" id="nb7" onclick="displayNumber(7)">7</button>
+                <button type="button" class=" sept col-3 text-center" value="7" id="nb7" onclick="displayNumber(7)">7</button>
 
 
                 <button type="button" class="col-3 text-center" value="8" id="nb8" onclick="displayNumber(8)">8</button>
 
                 <button type="button" class="col-3 text-center" id="nb9" value="9" onclick="displayNumber(9)">9</button>
 
-                <button type="button" class="col-3 text-center bg-primary text-white" id="plus" value="+"
+                <button type="button" class="col-3 text-center operator text-white" id="plus" value="+"
                     onclick="displayOperator('+')">+</button>
 
             </div>
@@ -50,7 +50,7 @@
 
                 <button type="button" class="col-3 text-center" value="6" id="nb6" onclick="displayNumber(6)">6</button>
 
-                <button type="button" class="col-3 text-center bg-primary text-white" value="-" id="minus"
+                <button type="button" class="col-3 text-center operator text-white" value="-" id="minus"
                     onclick="displayOperator('-')">-</button>
 
             </div>
@@ -62,12 +62,12 @@
 
                 <button type="button" class="col-3 text-center" id="nb3" value="3" onclick="displayNumber(3)">3</button>
 
-                <button type="button" class="col-3 text-center bg-primary text-white" id="mult" value="x"
+                <button type="button" class="col-3 text-center operator text-white" id="mult" value="x"
                     onclick="displayOperator('X')">X</button>
 
 
 
-                <button type="button" class="col-3 text-center" value="." id="dot" onclick="displayPoint()">.</button>
+                <button type="button" class="col-3 text-center" value="." id="point" onclick="displayPoint()">.</button>
 
                 <button type="button" class="col-3 text-center" id="nb0" onclick="displayNumber(0)">0</button>
 
@@ -75,12 +75,12 @@
                     onclick="reset()">c</button>
 
 
-                <button type="button" class="col-3 text-center bg-primary text-white" id="divide" value="/"
+                <button type="button" class="col-3 text-center operator text-white" id="divide" value="/"
                     onclick="displayOperator('/')">/</button>
 
             </div>
             <button type="button" value="=" onclick="calculate()" id="equal"
-                class="col-12 text-center fs-1 bg-dark text-white">=</button>
+                class="egal col-12 text-center fs-1 text-white">=</button>
         </div>
     </div>
     </div>
@@ -97,8 +97,7 @@
 
         function displayOperator(operator) { //pareil mais pour l'operateur
             document.getElementById("action").value = operator
-            if (display.value.length >=
-                1) { // on controle la zone first pour voir si elle n'est pas vide a l'aide de .length
+            if (display.value.length >=1) { // on controle la zone first pour voir si elle n'est pas vide a l'aide de .length
                 // on passe sur la zone second
                 display = document.getElementById("second") // fera qu'apres avoir mis un operateur, le number de la fonction sera affiché a la troisieme case
 
@@ -113,7 +112,9 @@
             document.getElementById("second").value = ""
             document.getElementById("action").value = ""
             document.getElementById("result").value = ""
+            
             display = document.getElementById("first") // on recharge la zone par defaut sur first
+            point=false
         }
 
         function displayPoint() {

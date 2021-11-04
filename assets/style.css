@@ -1,3 +1,28 @@
 .calculatrice {
     font-size: 7vh;
 }
+
+.col-3 {
+    background-color: black;
+    border-radius: 10%;
+    color: white;
+}
+
+.sept {
+    border-radius: 10%;
+    color: white;
+}
+
+.egal {
+    background-color: orange;
+    border-radius: 10%;
+}
+
+.text-end {
+    background-color: black;
+
+}
+
+.operator {
+    background-color: orange;
+}
