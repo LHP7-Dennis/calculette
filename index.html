@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Calculette</title>
+</head>
+
+<body>
+
+    <div class="calculatrice m-auto" id="calc">
+        <div>
+            <div colspan="4" class="border border-danger">
+                <div><input type="text" readonly="readonly" name="first" id="first"
+                        class="col-12 border border-white text-end" />
+                </div>
+                <div><input type="text" readonly="readonly" name="action" id="action"
+                        class="col-12 border border-white text-end" /></div>
+                <div><input type="text" readonly="readonly" name="second" id="second"
+                        class="col-12 border border-white text-end" />
+                </div>
+                <div><input type="text" readonly="readonly" name="result" id="result"
+                        class="col-12 border border-white text-end" /></div>
+            </div>
+        </div>
+        <div class="border border-primary fs-5 m-auto">
+            <div class="row justify-content-around m-auto fs-1">
+
+                <button type="button" class="col-3 text-center" value="7" id="nb7" onclick="displayNumber(7)">7</button>
+
+
+                <button type="button" class="col-3 text-center" value="8" id="nb8" onclick="displayNumber(8)">8</button>
+
+                <button type="button" class="col-3 text-center" id="nb9" value="9" onclick="displayNumber(9)">9</button>
+
+                <button type="button" class="col-3 text-center bg-primary text-white" id="plus" value="+"
+                    onclick="displayOperator('+')">+</button>
+
+            </div>
+            <div class="row justify-content-around m-auto fs-1">
+
+                <button type="button" class="col-3 text-center" value="4" id="nb4" onclick="displayNumber(4)">4</button>
+
+                <button type="button" class="col-3 text-center" id="nb5" value="5" onclick="displayNumber(5)">5</button>
+
+                <button type="button" class="col-3 text-center" value="6" id="nb6" onclick="displayNumber(6)">6</button>
+
+                <button type="button" class="col-3 text-center bg-primary text-white" value="-" id="minus"
+                    onclick="displayOperator('-')">-</button>
+
+            </div>
+            <div class="row justify-content-around m-auto fs-1">
+
+                <button type="button" class="col-3 text-center" id="nb1" value="1" onclick="displayNumber(1)">1</button>
+
+                <button type="button" class="col-3 text-center" id="nb2" value="2" onclick="displayNumber(2)">2</button>
+
+                <button type="button" class="col-3 text-center" id="nb3" value="3" onclick="displayNumber(3)">3</button>
+
+                <button type="button" class="col-3 text-center bg-primary text-white" id="mult" value="x"
+                    onclick="displayOperator('X')">X</button>
+
+
+
+                <button type="button" class="col-3 text-center" value="." id="dot" onclick="displayPoint()">.</button>
+
+                <button type="button" class="col-3 text-center" id="nb0" onclick="displayNumber(0)">0</button>
+
+                <button type="button" class="col-3 text-center bg-danger text-white" id="c" value="C"
+                    onclick="reset()">c</button>
+
+
+                <button type="button" class="col-3 text-center bg-primary text-white" id="divide" value="/"
+                    onclick="displayOperator('/')">/</button>
+
+            </div>
+            <button type="button" value="=" onclick="calculate()" id="equal"
+                class="col-12 text-center fs-1 bg-dark text-white">=</button>
+        </div>
+    </div>
+    </div>
+
+
+    <script>
+        let display = document.getElementById("first") // on cible la case dans laquelle on va ecrire les premiers nombres
+        let point = false // on declare une variable qui va nous permettre de savoir si on a cliqué sur le point
+        
+
+        function displayNumber(number) { //la fonction fera que le number soit affiché a la premiere case
+            display.value += number //value car c'est dans un input
+        }
+
+        function displayOperator(operator) { //pareil mais pour l'operateur
+            document.getElementById("action").value = operator
+            if (display.value.length >=
+                1) { // on controle la zone first pour voir si elle n'est pas vide a l'aide de .length
+                // on passe sur la zone second
+                display = document.getElementById("second") // fera qu'apres avoir mis un operateur, le number de la fonction sera affiché a la troisieme case
+
+
+            }
+            point = false // quand on clique sur l'operator on reactive le point a l'aide de la variable point
+
+        }
+
+        function reset() {
+            document.getElementById("first").value = ""
+            document.getElementById("second").value = ""
+            document.getElementById("action").value = ""
+            document.getElementById("result").value = ""
+            display = document.getElementById("first") // on recharge la zone par defaut sur first
+        }
+
+        function displayPoint() {
+            //si point different de faux on ajoute un point
+            if (!point) {
+                display.value += "."
+
+            }
+
+            point = true // on passe point en vrai pour le desactiver
+        }
+
+        function calculate() {
+            document.getElementById("equal")
+            document.getElementById("first").value
+            document.getElementById("second").value
+            document.getElementById("result").value
+            switch (action.value) {
+                case '+':
+                    result.value = Number(first.value) + Number(second.value)
+                    break;
+                    case '-':
+                    result.value = Number(first.value) - Number(second.value)
+                    break;
+                    case 'X':
+                    result.value = Number(first.value) * Number(second.value)
+                    break;
+                    case '/':
+                    result.value = Number(first.value) / Number(second.value)
+                    break;
+            }           
+
+        }
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
